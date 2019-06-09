@@ -150,7 +150,15 @@ console.log(objectSize({a : 2, b : 3, c : 4}))
  * @param {Number}
  * @return {Array}
  */
-var createZeroFilledArray;
+var createZeroFilledArray = function(num) {
+  let arr = [];
+  for(i = 0; i < num; i++) {
+    arr.push(0);
+  }
+  return arr;
+};
+
+console.log(createZeroFilledArray(3));
 
 /* #poppedArray
  *
@@ -159,7 +167,16 @@ var createZeroFilledArray;
  * @param {Array}
  * @return {Array}
  */
-var poppedArray;
+var poppedArray = function(arr) {
+  arr.pop();
+  // let newArr = [];
+  // for(i = 0; i < arr.length; i++) {
+  //   newArr.push(arr[i]);
+  // };
+  return arr;
+};
+
+console.log(poppedArray([6,7,8,9,10]));
 
 /* #splitString
  *
@@ -168,7 +185,12 @@ var poppedArray;
  * @param {String}
  * @return {Array}
  */
-var splitString;
+var splitString = function(str) {
+  let arr = str.split("");
+  return arr;
+};
+
+console.log(splitString("Boom"));
 
 /* #lengthOfLast
  *
@@ -177,7 +199,12 @@ var splitString;
  * @param {Array}
  * @return {Number}
  */
-var lengthOfLast;
+var lengthOfLast =function(arr) {
+  let last = arr.pop().length;
+  return last;
+};
+
+console.log(lengthOfLast(["what", "is", "my", "name?"]));
 
 /* #sumBelowTen
  *
@@ -186,7 +213,19 @@ var lengthOfLast;
  * @param {Array}
  * @return {Number}
  */
-var sumBelowTen;
+var sumBelowTen = function(arr) {
+  let sum = 0;
+  let newArr = []
+  for(i = 0; i < arr.length; i++) {
+    if(arr[i] < 10) {
+      newArr.push(arr[i]);
+      sum += newArr[i];
+    }
+  }
+  return sum;
+};
+
+console.log(sumBelowTen([2,4,6,8,12,14,16]));
 
 /* #moreThanTenLetters
  *
@@ -195,7 +234,17 @@ var sumBelowTen;
  * @param {Array}
  * @return {Number}
  */
-var moreThanTenLetters;
+var moreThanTenLetters = function(arr) {
+  let sum = 0;
+  for(i = 0; i < arr.length; i++) {
+    if(arr[i].length > 10) {
+      sum++;
+    }
+  }
+  return sum;
+};
+
+console.log(moreThanTenLetters(["bedazzlingly", "hello", "because", "elephant", "ant", "zigzagging-around"]));
 
 /* #multiplyAll
  *
@@ -437,11 +486,11 @@ module.exports = {
   convertToArray: convertToArray,
   objectSize: objectSize,
   createZeroFilledArray: createZeroFilledArray,
-  poppedArray: null,
-  splitString: null,
-  lengthOfLast: null,
-  sumBelowTen: null,
-  moreThanTenLetters: null,
+  poppedArray: poppedArray,
+  splitString: splitString,
+  lengthOfLast: lengthOfLast,
+  sumBelowTen: sumBelowTen,
+  moreThanTenLetters: moreThanTenLetters,
   multiplyAll: null,
   sumAllPositive: null,
   stringCountBelowThree: null,
