@@ -340,7 +340,11 @@ console.log(getObjectKeys({a:1, b:2, c:3, d:4}));
  * @param {Object}
  * @return {Array}
  */
-var getObjectValues;
+var getObjectValues = function(obj) {
+  return Object.values(obj);
+};
+
+console.log(getObjectValues({a:1, b:2, c:3, d:4}));
 
 /* #makeObject
  *
@@ -350,7 +354,15 @@ var getObjectValues;
  * @param {String}
  * @return {Object}
  */
-var makeObject;
+var makeObject = function(str, str2) {
+  let newObj = {};
+  let key = str;
+  let val = str2;
+  newObj[key] = val;
+  return newObj;
+};
+
+console.log(makeObject("dog", "Sparky"));
 
 /* #makeObjectReverse
  *
@@ -360,7 +372,15 @@ var makeObject;
  * @param {String}
  * @return {Object}
  */
-var makeObjectReverse;
+var makeObjectReverse = function(str, str2) {
+  let newObj = {};
+  let key = str2;
+  let val = str;
+  newObj[key] = val;
+  return newObj;
+};
+
+console.log(makeObjectReverse("Toyota", "Maker"));
 
 /* #tupleToObject
  *
@@ -369,7 +389,15 @@ var makeObjectReverse;
  * @param {Array}
  * @return {Object}
  */
-var tupleToObject;
+var tupleToObject = function(arr) {
+  let newObj = {};
+  let key = arr[0];
+  let val = arr[1];
+  newObj[key] = val;
+  return newObj;
+};
+
+console.log(tupleToObject(["Sun", "Moon"]));
 
 /* #tupleToObjectReverse
  *
@@ -378,7 +406,16 @@ var tupleToObject;
  * @param {Array}
  * @return {Object}
  */
-var tupleToObjectReverse;
+var tupleToObjectReverse = function(arr) {
+  arr.reverse();
+  let newObj = {};
+  let key = arr[0];
+  let val = arr[1];
+  newObj[key] = val;
+  return newObj;
+};
+
+console.log(tupleToObjectReverse(["fire", "ice"]));
 
 /* #strToKeys
  *
@@ -538,11 +575,11 @@ module.exports = {
   stringCountBelowThree: stringCountBelowThree,
   countObjects: countObjects,
   getObjectKeys: getObjectKeys,
-  getObjectValues: null,
-  makeObject: null,
-  makeObjectReverse: null,
-  tupleToObject: null,
-  tupleToObjectReverse: null,
+  getObjectValues: getObjectValues,
+  makeObject: makeObject,
+  makeObjectReverse: makeObjectReverse,
+  tupleToObject: tupleToObject,
+  tupleToObjectReverse: tupleToObjectReverse,
   strToKeys: null,
   getValues: null,
   getKeys: null,
