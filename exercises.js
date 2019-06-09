@@ -594,7 +594,16 @@ console.log(arrayToObjectNums([1,2,3,4,5]));
  * @param {String}
  * @return {Object}
  */
-var stringToKeys;
+var stringToKeys = function(str) {
+  let arr = str.split("");
+  let obj = {};
+  for(i = 0; i < str.length; i++) {
+    obj[arr[i]] = true;
+  }
+  return obj;
+};
+
+console.log(stringToKeys("tesding"));
 
 /* #charCountMap
  *
@@ -604,27 +613,51 @@ var stringToKeys;
  * @param {Array}
  * @return {Object}
  */
-var charCountMap;
+var charCountMap = function(arr) {
+  let obj = {};
+  for(i = 0; i < arr.length; i++) {
+    obj[arr[i]] = arr[i].length;
+  }
+  return obj;
+};
+
+console.log(charCountMap(["one", "two", "three", "four"]));
 
 /* #frequencyMap
  *
  * takes in an array of strings and returns an object with the string as the key and the number of occurences as the value.
  *
- * @param {String}
+ * @param {Array}
  * @return {Object}
  */
-var frequencyMap;
+var frequencyMap = function(arr) {
+  let obj = {};
+  for(i = 0; i < arr.length; i++) {
+  let key = arr[i];
+  obj[key] = obj[key] ? obj[key] + 1 : 1;
+  }
+  return obj;
+};
+
+console.log(frequencyMap(["a", "a", "a", "b", "c"]));
 
 /* #tupleConvertToObject
  *
  * takes in an array of tuples and and returns an object whos keys are 
  * the first element of the tuples and values are second element of the tuples.
  *
- * @param {String}
+ * @param {Array}
  * @return {Object}
  */
-var tupleConvertToObject;
+var tupleConvertToObject = function(arr) {
+  let obj = {};
+  for(i = 0; i < arr.length; i++) {
+    obj[arr[i][0]] = arr[i][1];
+  }
+  return obj;
+};
 
+console.log(tupleConvertToObject([[1,2], [3,4]]));
 
 module.exports = {
   doubleArray: doubleArray,
@@ -662,8 +695,8 @@ module.exports = {
   mapArrayValues: mapArrayValues,
   mapStringCounts: mapStringCounts,
   arrayToObjectNums: arrayToObjectNums,
-  stringToKeys: null,
-  charCountMap: null,
-  frequencyMap: null,
-  tupleConvertToObject: null
+  stringToKeys: stringToKeys,
+  charCountMap: charCountMap,
+  frequencyMap: frequencyMap,
+  tupleConvertToObject: tupleConvertToObject
 }
