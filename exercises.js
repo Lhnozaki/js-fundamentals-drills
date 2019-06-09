@@ -501,7 +501,15 @@ console.log(arrayToObject(["Model", "Name", "Price", "Year"]));
  * @param {Array}
  * @return {Object}
  */
-var arraysToObject;
+var arraysToObject = function(arr1, arr2) {
+  let obj = {};
+  for(i = 0; i < arr1.length; i++) {
+    obj[arr1[i]] = arr2[i];
+  }
+  return obj;
+};
+
+console.log(arraysToObject(["Breed", "Name", "Color"], ["Golden Retriever", "Lucy", "Golden Brown"]));
 
 /* #objectsToTuples
  *
@@ -511,7 +519,15 @@ var arraysToObject;
  * @param {Object}
  * @return {Array}
  */
-var objectsToTuples;
+var objectsToTuples = function(obj1, obj2) {
+  let finalArr = [];
+  let arr1 = Object.entries(obj1);
+  let arr2 = Object.entries(obj2);
+  finalArr = [...arr1, ...arr2];
+  return finalArr;
+};
+
+console.log(objectsToTuples({a:1, b:2}, {c:3, d:4}));
 
 /* #mapArrayValues
  *
@@ -520,7 +536,15 @@ var objectsToTuples;
  * @param {Array}
  * @return {Object}
  */
-var mapArrayValues;
+var mapArrayValues = function(arr) {
+  let obj = {};
+  for(i = 0; i < arr.length; i++) {
+    obj[arr[i]] = true;
+  }
+  return obj;
+};
+
+console.log(mapArrayValues(["Study", "Eat", "Sleep", "Repeat"]));
 
 /* #mapStringCounts
  *
@@ -531,7 +555,19 @@ var mapArrayValues;
  * @param {Array}
  * @return {Object}
  */
-var mapStringCounts;
+var mapStringCounts = function(arr) {
+  let obj = {};
+  for(i = 0; i < arr.length; i++) {
+    if(arr[i].length >= 5) {
+      obj[arr[i]] = true;
+    } else {
+      obj[arr[i]] = false;
+    }
+  }
+  return obj;
+};
+
+console.log(mapStringCounts(["overFive", "less"]));
 
 /* #arrayToObjectNums
  *
@@ -541,7 +577,15 @@ var mapStringCounts;
  * @param {Array}
  * @return {Object}
  */
-var arrayToObjectNums;
+var arrayToObjectNums = function(arr) {
+  let obj = {};
+  for(i = 0; i < arr.length; i++) {
+    obj[arr[i]] = true;
+  }
+  return obj;
+};
+
+console.log(arrayToObjectNums([1,2,3,4,5]));
 
 /* #stringToKeys
  *
@@ -613,11 +657,11 @@ module.exports = {
   getKeys: getKeys,
   objectToArray: objectToArray,
   arrayToObject: arrayToObject,
-  arraysToObject: null,
-  objectsToTuples: null,
-  mapArrayValues: null,
-  mapStringCounts: null,
-  arrayToObjectNums: null,
+  arraysToObject: arraysToObject,
+  objectsToTuples: objectsToTuples,
+  mapArrayValues: mapArrayValues,
+  mapStringCounts: mapStringCounts,
+  arrayToObjectNums: arrayToObjectNums,
   stringToKeys: null,
   charCountMap: null,
   frequencyMap: null,
