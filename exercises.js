@@ -253,7 +253,15 @@ console.log(moreThanTenLetters(["bedazzlingly", "hello", "because", "elephant", 
  * @param {Array}
  * @return {Number}
  */
-var multiplyAll;
+var multiplyAll = function(arr) {
+  let product = 1;
+  for(i = 0; i < arr.length; i++) {
+    product *= arr[i];
+  }
+  return product;
+};
+
+console.log(multiplyAll([1,2,3]));
 
 /* #sumAllPositive
  *
@@ -262,7 +270,17 @@ var multiplyAll;
  * @param {Array}
  * @return {Number}
  */
-var sumAllPositive;
+var sumAllPositive = function(arr) {
+  let sum = 0;
+  for(i = 0; i < arr.length; i++) {
+    if(arr[i] > 0) {
+      sum += arr[i];
+    }
+  }
+  return sum;
+};
+
+console.log(sumAllPositive([4, 5, -6, 2, -3, -1, 0]));
 
 /* #stringCountBelowThree
  *
@@ -271,7 +289,17 @@ var sumAllPositive;
  * @param {Array}
  * @return {Number}
  */
-var stringCountBelowThree;
+var stringCountBelowThree = function(arr) {
+  let count = 0;
+  for(i = 0; i < arr.length; i++) {
+    if(arr[i].length <= 3) {
+      count++;
+    }
+  }
+  return count;
+};
+
+console.log(stringCountBelowThree(["five", "four", "three", "two", "one", "1", "2"]));
 
 /* #countObjects
  *
@@ -280,7 +308,17 @@ var stringCountBelowThree;
  * @param {Array}
  * @return {Number}
  */
-var countObjects;
+var countObjects = function(arr) {
+  let count = 0;
+  for(i = 0; i < arr.length; i++) {
+    if(typeof arr[i] === "object") {
+    count++;
+   }
+  }
+  return count;
+};
+
+console.log(countObjects([{a:1, b:2}, {c:3, d:4}, {e:5, f:6}]));
 
 /* #getObjectKeys
  *
@@ -289,7 +327,11 @@ var countObjects;
  * @param {Object}
  * @return {Array}
  */
-var getObjectKeys;
+var getObjectKeys = function(obj) {
+  return Object.keys(obj);
+};
+
+console.log(getObjectKeys({a:1, b:2, c:3, d:4}));
 
 /* #getObjectValues
  *
@@ -491,11 +533,11 @@ module.exports = {
   lengthOfLast: lengthOfLast,
   sumBelowTen: sumBelowTen,
   moreThanTenLetters: moreThanTenLetters,
-  multiplyAll: null,
-  sumAllPositive: null,
-  stringCountBelowThree: null,
-  countObjects: null,
-  getObjectKeys: null,
+  multiplyAll: multiplyAll,
+  sumAllPositive: sumAllPositive,
+  stringCountBelowThree: stringCountBelowThree,
+  countObjects: countObjects,
+  getObjectKeys: getObjectKeys,
   getObjectValues: null,
   makeObject: null,
   makeObjectReverse: null,
